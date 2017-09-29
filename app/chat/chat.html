@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Angularjs</title>
+    <base href="/">
+    <script src="http://localhost:9000/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+    <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+    <script src="bower_components/angular-socket-io/socket.min.js"></script>
+
+    <script src="app/core/core.directive.js"></script>
+
+    <script src="app/chat/chat.module.js"></script>
+    <script src="app/chat/chat.config.js"></script>
+    <script src="app/chat/socket.service.js"></script>
+    <script src="app/chat/chat.controller.js"></script>
+
+    <script src="app/app.module.js"></script>
+    <script src="app/app.config.js"></script>
+
+    <div class="panel panel-default" ng-controller="ChatController as vm">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                Chat mesage
+            </h3>
+        </div>
+        <div class="panel-body">
+            <ul>
+                <li ng-repeat="msg in vm.mesages">
+                    <b>
+                        {msg.username}}
+                    </b>
+                    : {msg.text}}
+                </li>
+            </ul>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <textarea class="form-control chat-box" my-enter="vm.sendMsg();" ng-model="vm.text" placeholder="Enter your mesage" row="3">
+                    </textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+
+    
